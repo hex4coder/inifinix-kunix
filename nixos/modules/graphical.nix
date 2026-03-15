@@ -1,15 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  # Enable SDDM and Wayland
-  services.displayManager.sddm = {
-  	enable = true;
-	wayland.enable = true;
-	theme = "sddm-sugar-dark";
+  # Disable SDDM
+  services.displayManager.sddm.enable = false;
 
-	extraPackages = with pkgs; [
-	    sddm-sugar-dark
-	];
+  # Enable DankGreeter
+  services.displayManager.dms-greeter = {
+    enable = true;
+    compositor.name = "niri";
   };
 
   # Enable niri

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   # Home-manager state version.
@@ -19,6 +19,24 @@
 
   # Enable home-manager.
   programs.home-manager.enable = true;
+
+  xdg.configFile."niri/config.kdl" = {
+    source = inputs.self + "/nixos/config/niri/config.kdl";
+    force = true;
+  };
+
+  imports = [
+    inputs.niri.homeModules.niri
+  ];
+
+  programs.niri = {
+    enable = true;
+    # Niri configuration will be placed here
+  };
+
+  nixpkgs.overlays = [
+    inputs.niri.overlays.niri
+  ];
 
   programs.zsh.shellAliases = {
     # Git aliases
