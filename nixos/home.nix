@@ -12,9 +12,9 @@
 	udiskie
 	nautilus
 	fuzzel
-	ulauncher
 	signal-desktop
 	zoom-us
+	ghostty
   ];
 
   # Enable home-manager.

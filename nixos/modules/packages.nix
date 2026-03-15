@@ -15,7 +15,6 @@
     	wget
 	git
 	auto-cpufreq
-	kitty
 	onlyoffice-desktopeditors
 
 	gemini-cli

@@ -45,6 +45,7 @@
 	SDL_VIDEODRIVER = "wayland";
 	CLUTTER_BACKEND = "wayland";
 	XDG_SESSION_TYPE = "wayland"; 
+	XDG_TERMINAL_EMULATOR = "ghostty";
   };
 
   # setting untuk tema
