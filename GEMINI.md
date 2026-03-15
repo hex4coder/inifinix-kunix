@@ -1,11 +1,11 @@
 # Project Overview
 
-This is a NixOS configuration for a system named "nixos". It uses Nix Flakes and is structured in a modular way. The configuration is for a system with an Intel CPU and uses Wayland with the `niri` window manager and SDDM as the display manager.
+This is a NixOS configuration for a system named "nixos". It uses Nix Flakes and is structured in a modular way. The configuration is for a system with an Intel CPU and uses Wayland with the `niri` window manager and `DankGreeter` as the display manager, integrated with `Dank Material Shell`.
 
 The configuration is broken down into the following modules:
 - `system.nix`: Basic system settings like hostname, timezone, kernel, and garbage collection.
-- `bootloader.nix`: Bootloader configuration (systemd-boot).
-- `graphical.nix`: Graphical environment settings (Wayland, SDDM, niri, themes).
+- `bootloader.nix`: Bootloader configuration (`systemd-boot` with a 1-second timeout and showing the last 5 generations).
+- `graphical.nix`: Graphical environment settings (Wayland, `DankGreeter` for display management, themes).
 - `sound.nix`: Sound configuration (PipeWire).
 - `packages.nix`: System-wide installed packages.
 - `services.nix`: System services like printing, SSH, and file management.
@@ -13,14 +13,14 @@ The configuration is broken down into the following modules:
 - `power.nix`: Power management settings (auto-cpufreq).
 - `fonts.nix`: Font configurations.
 
-The `flake.nix` file defines the system's inputs, including `nixpkgs-unstable` and the `niri` window manager flake.
+The `flake.nix` file defines the system's inputs, including `nixpkgs-unstable`, the `niri` window manager flake, and the `dms` (Dank Material Shell) flake. The `niri` configuration for user `kunix` is now managed by Home Manager in `home.nix`.
 
 # Building and Running
 
 To apply the configuration to the system, run the following command from the root of this project:
 
 ```bash
-nixos-rebuild switch --flake .#nixos
+sudo nixos-rebuild switch --flake ./nixos#nixos
 ```
 
 # Development Conventions
